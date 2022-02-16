@@ -1,41 +1,9 @@
-<!-- html code  -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Google FAQ</title>
-</head>
-<body>
-    <div class="fixed-header">
-        <header class="container">
-            <img class="logo" src="./img/logo.png" alt="">
-            <nav class="flex-nav">
-                <span>Overiew</span>
-                <span>Privacy Policy</span>
-                <span>Terms of Service</span>
-                <span>Technologies</span>
-                <span class="active">FAQ</span>
-                <!-- insert flex and gap -->
-            </nav>
-        </header>
-        <hr>
-        <main class="container-main">
-        </main>
-    </div>
-</body>
-</html>
-
-<!-- php code  -->
+<!-- database code  -->
 
 <?php
 
 $faq = [
-    // other sections go here 
-    "faq"=>[
+
         [
             "title" =>"How are you implementing the recent Court of Justice of the European Union (CJEU) decision on the right to be forgotten?",
             "par" =>[
@@ -92,12 +60,59 @@ $faq = [
                 "In some cases, yes. When you click on a search result in Google Search, your web browser may also send the Internet address, or URL, of the search results page to the destination web page as the Referrer URL. The URL of the search results page may sometimes contain the search query that you entered. If you are using SSL Search (Google’s encrypted search functionality), under most circumstances, your search terms will not be sent as part of the URL in the Referrer URL. There are some exceptions to this behaviour, such as if you are using some less popular browsers. More information on SSL Search can be found here. Search queries or information contained in the Referrer URL may be available via Google Analytics or an application programming interface (API). In addition, advertisers may receive information relating to the exact keywords that triggered an ad click.",
             ],
         ],
-    ]
-]
-
-
-
+];
 
 ?>
+
+<!-- html code  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Google FAQ</title>
+</head>
+<body>
+    <div class="fixed-header">
+        <header class="container">
+            <img class="logo" src="./img/logo.png" alt="">
+            <nav class="flex-nav">
+                <span>Overiew</span>
+                <span>Privacy Policy</span>
+                <span>Terms of Service</span>
+                <span>Technologies</span>
+                <span class="active">FAQ</span>
+            </nav>
+        </header>
+        <hr>
+        <main class="container-main">
+        <?php 
+
+        for ($i=0; $i < sizeof($faq); $i++){
+            echo "<section>";
+            echo "<h2>".$faq[$i]["title"]."</h2>";
+                foreach ($faq[$i]["par"] as $key => $value) {
+                    echo "<p>".$value."</p>";
+                }
+                if (array_key_exists("subtitle", $faq[$i])) {
+                    echo "<h4>".$faq[$i]["subtitle"]."</h4>";
+
+                    foreach ($faq[$i]["subpar"] as $key => $value) {
+                        echo "<p>".$value."</p>";
+                    }
+                }
+                echo "</section>";
+        };
+        
+        ?>
+        </main>
+    </div>
+</body>
+</html>
+
+
 
 
