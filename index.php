@@ -77,17 +77,18 @@ $faq = [
 </head>
 <body>
     <div class="fixed-header">
-        <header class="container">
-            <img class="logo" src="./img/logo.png" alt="">
-            <nav class="flex-nav">
-                <span>Overiew</span>
-                <span>Privacy Policy</span>
-                <span>Terms of Service</span>
-                <span>Technologies</span>
-                <span class="active">FAQ</span>
-            </nav>
+        <header class="container">        
+                <img class="logo" src="./img/logo.png" alt="">
+                <nav class="flex-nav">
+                    <span>Overiew</span>
+                    <span>Privacy Policy</span>
+                    <span>Terms of Service</span>
+                    <span>Technologies</span>
+                    <span class="active">FAQ</span>
+                </nav>
         </header>
         <hr>
+    </div>
         <main class="container-main">
         <?php 
 
